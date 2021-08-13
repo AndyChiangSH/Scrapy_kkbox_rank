@@ -64,7 +64,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     #    'kkbox_rank.pipelines.KkboxRankPipeline': 300,
-    'kkbox_rank.pipelines.CsvPipeline': 500,
+    # 'kkbox_rank.pipelines.CsvPipeline': 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

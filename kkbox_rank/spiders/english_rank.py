@@ -1,4 +1,4 @@
-# 爬取最新華語歌曲前50名
+# 爬取最新西洋歌曲前50名
 
 import scrapy
 import requests
@@ -6,14 +6,14 @@ import json
 import time
 
 
-class ChineseRankSpider(scrapy.Spider):
-    name = 'chinese_rank'
+class EnglishRankSpider(scrapy.Spider):
+    name = 'english_rank'
     allowed_domains = ['kma.kkbox.com']
     start_urls = [
-        'https://kma.kkbox.com/charts/api/v1/daily?category=297&lang=tc&limit=50&terr=tw&type=newrelease']
+        'https://kma.kkbox.com/charts/api/v1/daily?category=390&lang=tc&limit=50&terr=tw&type=newrelease']
     custom_settings = {
         'ITEM_PIPELINES': {
-            'kkbox_rank.pipelines.ChinesePipeline': 400
+            'kkbox_rank.pipelines.EnglishPipeline': 400
         }
     }
 

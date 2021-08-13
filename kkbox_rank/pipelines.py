@@ -9,14 +9,89 @@ from itemadapter import ItemAdapter
 from scrapy.exporters import CsvItemExporter
 
 
-class KkboxRankPipeline:
-    def process_item(self, item, spider):
-        return item
+# class KkboxRankPipeline:
+#     def process_item(self, item, spider):
+#         return item
 
 
-class CsvPipeline:
+class ChinesePipeline:
     def __init__(self):
         self.file = open('chinese_rank.csv', 'wb')
+        self.exporter = CsvItemExporter(self.file, encoding='big5')
+        self.exporter.start_exporting()
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.file.close()
+
+
+class EnglishPipeline:
+    def __init__(self):
+        self.file = open('english_rank.csv', 'wb')
+        self.exporter = CsvItemExporter(self.file, encoding='big5')
+        self.exporter.start_exporting()
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.file.close()
+
+
+class JapanesePipeline:
+    def __init__(self):
+        self.file = open('japanese_rank.csv', 'wb')
+        self.exporter = CsvItemExporter(self.file, encoding='utf-8')
+        self.exporter.start_exporting()
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.file.close()
+
+
+class KoreanPipeline:
+    def __init__(self):
+        self.file = open('korean_rank.csv', 'wb')
+        self.exporter = CsvItemExporter(self.file, encoding='utf-8')
+        self.exporter.start_exporting()
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.file.close()
+
+
+class TaiwanesePipeline:
+    def __init__(self):
+        self.file = open('taiwanese_rank.csv', 'wb')
+        self.exporter = CsvItemExporter(self.file, encoding='big5')
+        self.exporter.start_exporting()
+
+    def process_item(self, item, spider):
+        self.exporter.export_item(item)
+        return item
+
+    def close_spider(self, spider):
+        self.exporter.finish_exporting()
+        self.file.close()
+
+
+class CantonesePipeline:
+    def __init__(self):
+        self.file = open('cantonese_rank.csv', 'wb')
         self.exporter = CsvItemExporter(self.file, encoding='big5')
         self.exporter.start_exporting()
 
